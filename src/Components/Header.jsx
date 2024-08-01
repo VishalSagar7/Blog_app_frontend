@@ -26,7 +26,6 @@ const Header = () => {
 
         fetch(`${BASE_URL}/profile`, {
             credentials: 'include',
-            method: 'POST',
         }).then((response) => {
 
             response.json().then(userInfo => {
