@@ -49,6 +49,10 @@ const CreatePost = () => {
         if (response.ok) {
             setRedirect(true);
         }
+        else {
+            console.log('Failed to create post:', response.statusText);
+            
+        }
         
     }
 
