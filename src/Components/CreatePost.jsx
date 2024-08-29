@@ -30,31 +30,34 @@ const CreatePost = () => {
     const [files, setFiles] = useState('');
     const [redirect, setRedirect] = useState(false);
 
-    async function createNewPost(ev) {
+    const createNewPost = async (ev) => {
         ev.preventDefault();
-
+    
         const data = new FormData();
-
         data.set('title', title);
         data.set('summary', summary);
         data.set('content', content);
-        data.set('file', files[0]);
-
-        const response = await fetch(`${BASE_URL}/post`, {
-            method: 'POST',
-            body: data,
-            credentials : 'include',
-        });
-
-        if (response.ok) {
-            setRedirect(true);
+        data.set('image', files[0]);
+    
+        try {
+            const response = await fetch(`${BASE_URL}/post`, {
+                method: 'POST',
+                body: data,
+                credentials: 'include', // Ensure this is included
+            });
+    
+            if (response.ok) {
+                setRedirect(true);
+            } else {
+                console.error('Failed to create post:', await response.text());
+            }
+        } catch (error) {
+            console.error('Error creating post:', error);
         }
-        else {
-            console.log('Failed to create post:', response.statusText);
-            
-        }
-        
-    }
+    };
+    
+    
+    
 
     if (redirect) {
 
@@ -84,6 +87,7 @@ const CreatePost = () => {
 
             <input
                 type="file" 
+                name='image'
                 className='pt-[3px] w-[100%] bg-gray-100 h-[40px] outline-none rounded pl-[15px] border-[2px] border-gray-300 focus:border-[2px] focus:border-sky-400'
                 onChange={(e) => setFiles(e.target.files)}
             />

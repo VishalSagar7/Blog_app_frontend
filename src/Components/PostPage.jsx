@@ -62,12 +62,16 @@ const PostPage = () => {
         return <div>Loading...</div>;
     }
 
+    // console.log(postInfo.cover);
+    
+
     return (
         <div className='h-auto w-[60%] mx-auto mt-[100px] mb-[100px]'>
             <div className='h-[400px]'>
                 <img
                     className='h-full w-full object-cover'
-                    src={`${BASE_URL}/` + (postInfo.cover || '')}
+                    src={(`${postInfo.cover}` || '')}
+                    // src='https://res.cloudinary.com/deaatlwug/image/upload/v1724920199/iwpaxobwcn3t3xbresrz.jpg'
                     alt={postInfo.title || 'Post Cover'}
                 />
             </div>
@@ -76,7 +80,7 @@ const PostPage = () => {
                 <div>
                     <Link to={`/edit/${postInfo._id}`}>
                         <button className='mt-[15px] px-[10px] py-[5px] rounded border border-gray-600 bg-gray-300 transition duration-200 hover:bg-gray-400'>
-                            Edi post
+                            Edit post
                         </button>
                     </Link>
 

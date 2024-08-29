@@ -30,7 +30,7 @@ const Header = () => {
 
             response.json().then(userInfo => {
                 // console.log(userInfo);
-                setUserInfo(userInfo)
+                setUserInfo(userInfo);
 
             })
         })

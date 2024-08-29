@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 
 const Post = (props) => {
 
-    console.log(props.post);
+    // console.log(props.post.cover);
+    
 
     const { content, summary, title, createdAt, updatedAt, cover, author, _id } = props?.post;
 
@@ -17,7 +18,7 @@ const Post = (props) => {
                 <div className="shadow-md h-[300px] flex mt-[15px] transition duration-200 hover:bg-gray-100">
                     <div className="border-md w-[40%] h-full overflow-hidden">
                         <img
-                            src={'http://localhost:4000/' + cover}
+                            src={`${props.post.cover}`}
                             className="h-full w-full object-cover object-center transition duration-200 hover:scale-105"
                         />
                     </div>
