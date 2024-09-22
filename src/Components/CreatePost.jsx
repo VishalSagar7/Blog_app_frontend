@@ -67,7 +67,7 @@ const CreatePost = () => {
 
 
     return (
-        <form className='w-[75%] mx-auto mt-[120px] flex flex-col gap-[15px] mb-[100px]' onSubmit={createNewPost}>
+        <form className='w-[75%]  mx-auto mt-[120px] flex flex-col gap-[15px] mb-[100px]' onSubmit={createNewPost}>
 
             <input
                 type="text"
@@ -96,6 +96,7 @@ const CreatePost = () => {
                 value={content}
                 modules={modules}
                 onChange={(newValue => setContent(newValue))}
+                className='min-h-[300px]'
             />
 
             <button

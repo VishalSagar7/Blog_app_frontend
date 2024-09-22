@@ -26,7 +26,7 @@ const Post = (props) => {
                         <h1 className="text-2xl font-bold">
                             {title}
                         </h1>
-                        <h1 className='mt-[5px] font-semibold'>{author.username} <span className='ml-[10px] text-gray-600'>{format(new Date(createdAt), 'MMM d , yyyy HH:mm')}</span> </h1>
+                        <h1 className='mt-[5px] font-semibold'>{author.username} <span className='ml-[10px] text-blue-600'>{format(new Date(createdAt), 'MMM d , yyyy HH:mm')}</span> </h1>
                         <h1 className="text-lg mt-[5px]">
                             {summary}
                         </h1>

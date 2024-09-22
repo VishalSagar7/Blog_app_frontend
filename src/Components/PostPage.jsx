@@ -8,6 +8,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
 import { BASE_URL } from '../helper';
+import PostpageShimmer from './PostpageShimmer';
 
 const PostPage = () => {
     const [postInfo, setPostInfo] = useState(null);
@@ -59,14 +60,14 @@ const PostPage = () => {
     };
 
     if (!postInfo || !userInfo) {
-        return <div>Loading...</div>;
+        return <PostpageShimmer/>;
     }
 
     // console.log(postInfo.cover);
     
 
     return (
-        <div className='h-auto w-[60%] mx-auto mt-[100px] mb-[100px]'>
+        <div className=' min-h-[100vh] w-[60%] mx-auto mt-[100px] mb-[100px]'>
             <div className='h-[400px]'>
                 <img
                     className='h-full w-full object-cover'

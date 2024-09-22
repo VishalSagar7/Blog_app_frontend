@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Post from './Post';
 import { BASE_URL } from '../helper';
+import IndexpageShimmer from './IndexpageShimmer';
 
 const IndexPage = () => {
   const [posts, setPosts] = useState([]);
@@ -13,6 +14,10 @@ const IndexPage = () => {
         setPosts(posts);
       });
   }, []);
+
+  if (posts.length === 0) {
+    return <IndexpageShimmer/>
+  }
 
   return (
     <div className='w-[75%] mx-auto mt-[100px] mb-[100px]'>
